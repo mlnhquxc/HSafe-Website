@@ -1,0 +1,295 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-be-vietnam), var(--font-geist-sans);
+  --font-mono: var(--font-jetbrains-mono), var(--font-geist-mono);
+}
+
+:root {
+  /* HSafe Branding Palette - Updated */
+  --background: #ffffff;
+  --foreground: #1a1a2e;
+  
+  --brand-blue: #009fe3; /* From HSafe 'H' & text */
+  --brand-green: #00a651; /* From HSafe logo accent */
+  --brand-dark: #007bb5; 
+  
+  --accent: #00a651;
+  --text-muted: #5a6b8c;
+  
+  --card-shadow: rgba(0, 159, 227, 0.12);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+/* Custom Utilities */
+@layer utilities {
+  /* Hero gradient - flows from header dark teal */
+  .hero-gradient {
+    background: linear-gradient(160deg, #0a3d62 0%, #0c5460 25%, #0e7490 60%, #06b6d4 100%);
+  }
+
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+
+  .text-glow {
+    text-shadow: 0 0 10px currentColor;
+  }
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Stagger delays for float animation */
+.delay-0 { animation-delay: 0s; }
+.delay-100 { animation-delay: 0.2s; }
+.delay-200 { animation-delay: 0.4s; }
+.delay-300 { animation-delay: 0.6s; }
+.delay-400 { animation-delay: 0.8s; }
+
+/* ═══════════════════════════════════════════════════════════════
+   HERO TEXT EFFECTS - Animated Gradient Glow
+═══════════════════════════════════════════════════════════════ */
+
+/* Animated gradient shift */
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Shimmer sweep effect */
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* Glow pulse */
+@keyframes glow-pulse {
+  0%, 100% { 
+    filter: drop-shadow(0 0 20px currentColor) drop-shadow(0 0 40px currentColor);
+    opacity: 1;
+  }
+  50% { 
+    filter: drop-shadow(0 0 30px currentColor) drop-shadow(0 0 60px currentColor);
+    opacity: 0.95;
+  }
+}
+
+/* Safety text - Cyan/Teal gradient with subtle glow */
+.text-safety {
+  background: linear-gradient(
+    90deg,
+    #a5f3fc 0%,
+    #67e8f9 25%,
+    #22d3ee 50%,
+    #67e8f9 75%,
+    #a5f3fc 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradient-shift 4s ease infinite;
+  text-shadow: 
+    0 0 4px rgba(103, 232, 249, 0.6),
+    0 0 8px rgba(34, 211, 238, 0.4),
+    0 0 12px rgba(6, 182, 212, 0.2);
+}
+
+/* Danger/Warning text - Orange/Yellow gradient with subtle glow */
+.text-danger {
+  background: linear-gradient(
+    90deg,
+    #fef08a 0%,
+    #fde047 25%,
+    #facc15 50%,
+    #fde047 75%,
+    #fef08a 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradient-shift 3s ease infinite;
+  text-shadow: 
+    0 0 4px rgba(253, 224, 71, 0.7),
+    0 0 8px rgba(250, 204, 21, 0.5),
+    0 0 12px rgba(245, 158, 11, 0.3);
+}
+
+/* Gold highlight text - for emphasis words like "Sứ mệnh" */
+.text-highlight-gold {
+  background: linear-gradient(90deg, #fbbf24, #f59e0b, #fbbf24);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradient-shift 4s ease infinite;
+  text-shadow: 
+    0 0 4px rgba(251, 191, 36, 0.6),
+    0 0 8px rgba(245, 158, 11, 0.4);
+}
+
+/* Cyan highlight text - for emphasis words like "hỗ trợ" */
+.text-highlight-cyan {
+  background: linear-gradient(90deg, #67e8f9, #22d3ee, #67e8f9);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradient-shift 4s ease infinite;
+  text-shadow: 
+    0 0 4px rgba(103, 232, 249, 0.6),
+    0 0 8px rgba(34, 211, 238, 0.4);
+}
+
+/* Text shimmer class - kept for compatibility but no overlay */
+.text-shimmer {
+  /* Clean text effect without overlay box */
+}
+
+/* Custom Components */
+.btn-primary {
+  @apply inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-[var(--brand-green)] to-[#008f45] px-8 py-3.5 text-base font-bold text-white shadow-lg transition-all duration-200;
+  box-shadow: 0 4px 15px rgba(0, 166, 81, 0.3);
+}
+
+.btn-primary:hover {
+  @apply -translate-y-0.5 scale-105 brightness-110;
+  box-shadow: 0 8px 25px rgba(0, 166, 81, 0.4);
+}
+
+.btn-secondary {
+  @apply inline-flex items-center justify-center rounded-lg border-2 border-white/30 bg-white/10 px-8 py-3.5 text-base font-bold text-white backdrop-blur-md transition-all duration-200 hover:bg-white/20 hover:border-white/50;
+}
+
+.hero-heading {
+  @apply text-4xl font-extrabold leading-tight tracking-tight text-white md:text-5xl lg:text-6xl;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 24px rgba(0, 159, 227, 0.2);
+}
+
+.hero-subtext {
+  @apply max-w-md text-lg leading-relaxed text-white/90 font-medium;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+/* HSafe Sidebar Styles - Glowing Capsule Design */
+.hsafe-sidebar-container {
+  position: fixed;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 60;
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .hsafe-sidebar-container {
+    display: block;
+  }
+}
+
+.hsafe-capsule {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 8px;
+  border-radius: 9999px;
+  background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+.hsafe-node {
+  position: relative;
+  display: flex;
+  height: 44px;
+  width: 44px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 900;
+  transition: all 0.3s ease;
+}
+
+.hsafe-node::before {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  border-radius: 9999px;
+  background: #1e293b;
+  transition: all 0.3s ease;
+}
+
+.hsafe-node:hover::before {
+  background: #334155;
+}
+
+.hsafe-node span {
+  position: relative;
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+
+.hsafe-node:hover span {
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 10px currentColor);
+}
+
+.hsafe-tooltip {
+  position: absolute;
+  left: 60px;
+  top: 50%;
+  transform: translateY(-50%) translateX(0);
+  width: 280px;
+  padding: 16px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.group:hover .hsafe-tooltip {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(-50%) translateX(8px);
+}
+
+.hsafe-tooltip::before {
+  content: '';
+  position: absolute;
+  left: -6px;
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+  width: 12px;
+  height: 12px;
+  background: #1e293b;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
