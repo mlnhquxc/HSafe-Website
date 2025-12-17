@@ -18,14 +18,34 @@ const contactMethods = [
   },
   {
     title: "Email",
-    detail: "info@hsafe.vn",
+    detail: "contact@hsafe.net",
     action: "Gửi email",
-    href: "mailto:info@hsafe.vn",
+    href: "mailto:contact@hsafe.net",
     gradient: "from-[#00a651] to-[#008f45]",
     iconBg: "bg-gradient-to-br from-[#00a651] to-[#008f45]",
     icon: (
-      <svg className="h-7 w-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+      <svg
+        className="h-7 w-7 text-white"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={2}
+      >
+        <rect
+          x={3}
+          y={5}
+          width={18}
+          height={14}
+          rx={3}
+          ry={3}
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M5 8l7 5 7-5"
+        />
       </svg>
     ),
   },
@@ -33,7 +53,7 @@ const contactMethods = [
     title: "Văn phòng",
     detail: "50 Đường số 2, KDC Khang An, P. Long Trường, TP. Thủ Đức",
     action: "Xem bản đồ",
-    href: "https://maps.google.com/?q=50+duong+so+2+KDC+Khang+An+Long+Truong+Thu+Duc",
+    href: "https://www.google.com/maps/place/C%C3%B4ng+ty+TNHH+Gi%E1%BA%A3i+Ph%C3%A1p+K%E1%BB%B9+Thu%E1%BA%ADt+L%C3%AA+D%C6%B0%C6%A1ng/@10.7979487,106.7871376,923m/data=!3m1!1e3!4m15!1m8!3m7!1s0x31752696dfce8f31:0x51d4adf44cc66387!2zNTAgxJAuIHPhu5EgMiwgS2h1IGTDom4gY8awIEtoYW5nIEFuLCBUaOG7pyDEkOG7qWMsIFRow6BuaCBwaOG7kSBI4buTIENow60gTWluaCA3MTIxMiwgVmnhu4d0IE5hbQ!3b1!8m2!3d10.7979487!4d106.7897125!16s%2Fg%2F11h89s55c5!3m5!1s0x317527978309ba07:0x4718584f1e5db815!8m2!3d10.7979487!4d106.7897125!16s%2Fg%2F11jm2k38z0?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D",
     gradient: "from-[#0a3d62] to-[#0c5460]",
     iconBg: "bg-gradient-to-br from-[#0a3d62] to-[#0c5460]",
     icon: (
@@ -49,30 +69,42 @@ export default function ContactPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#0a3d62] via-[#0c5460] to-[#009fe3] pb-24 pt-36 text-white lg:pt-44">
-        {/* Decorative circles */}
-        <div className="pointer-events-none absolute -left-20 -top-20 h-72 w-72 rounded-full bg-white/5 blur-3xl" />
-        <div className="pointer-events-none absolute -bottom-32 -right-32 h-96 w-96 rounded-full bg-[#00a651]/20 blur-3xl" />
+      <section className="hero-gradient relative overflow-hidden pb-24 pt-36">
+        {/* Background decoration */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute -top-1/2 -right-1/4 h-96 w-96 rounded-full bg-white/5 blur-3xl" />
+          <div className="absolute -bottom-1/2 -left-1/4 h-96 w-96 rounded-full bg-white/5 blur-3xl" />
+        </div>
         
-        <div className="relative z-10 mx-auto max-w-7xl px-6 text-center lg:px-10">
+        <div className="relative mx-auto max-w-7xl px-6 text-center text-white lg:px-10">
           <h1 className="text-4xl font-extrabold tracking-tight md:text-5xl lg:text-6xl">
             <span className="text-white">Chúng tôi luôn sẵn sàng</span>
             <br />
             <span className="text-safety">hỗ trợ bạn</span>
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/80">
+          <p className="mx-auto mt-8 max-w-2xl text-lg text-white/80 md:text-xl">
             Hãy liên hệ để nhận tư vấn miễn phí từ đội ngũ kỹ sư giàu kinh nghiệm về giải pháp an toàn lao động.
           </p>
         </div>
         
         {/* Wave divider */}
         <div className="absolute bottom-0 left-0 right-0">
-          <svg viewBox="0 0 1440 120" className="w-full text-white">
-            <path
-              fill="currentColor"
-              d="M0,64L80,69.3C160,75,320,85,480,80C640,75,800,53,960,48C1120,43,1280,53,1360,58.7L1440,64L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z"
-            />
+          <svg viewBox="0 0 1440 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 50L60 45.7C120 41.3 240 32.7 360 30.8C480 29 600 34 720 42.3C840 50.7 960 62.3 1080 64.2C1200 66 1320 57 1380 52.8L1440 48.7V100H1380C1320 100 1200 100 1080 100C960 100 840 100 720 100C600 100 480 100 360 100C240 100 120 100 60 100H0V50Z" fill="white"/>
           </svg>
+        </div>
+      </section>
+
+      {/* Breadcrumb below hero */}
+      <section className="py-3">
+        <div className="mx-auto flex max-w-7xl items-center px-6 text-xs font-medium text-slate-500 lg:px-10">
+          <nav className="flex flex-wrap items-center gap-2">
+            <Link href="/" className="transition-colors hover:text-slate-900">
+              Trang chủ
+            </Link>
+            <span className="text-slate-400">›</span>
+            <span className="text-slate-800">Liên hệ</span>
+          </nav>
         </div>
       </section>
 
@@ -137,7 +169,6 @@ export default function ContactPage() {
                 </span>
                 <input
                   type="text"
-                  placeholder="Nguyễn Văn A"
                   className="mt-2 w-full rounded-xl border border-slate-200 px-4 py-3.5 text-sm transition-all focus:border-[#009fe3] focus:ring-2 focus:ring-[#009fe3]/20 focus:outline-none"
                 />
               </label>
@@ -147,7 +178,6 @@ export default function ContactPage() {
                 </span>
                 <input
                   type="email"
-                  placeholder="email@congty.com"
                   className="mt-2 w-full rounded-xl border border-slate-200 px-4 py-3.5 text-sm transition-all focus:border-[#009fe3] focus:ring-2 focus:ring-[#009fe3]/20 focus:outline-none"
                 />
               </label>
@@ -160,7 +190,6 @@ export default function ContactPage() {
                 </span>
                 <input
                   type="tel"
-                  placeholder="0901 234 567"
                   className="mt-2 w-full rounded-xl border border-slate-200 px-4 py-3.5 text-sm transition-all focus:border-[#009fe3] focus:ring-2 focus:ring-[#009fe3]/20 focus:outline-none"
                 />
               </label>
@@ -170,7 +199,6 @@ export default function ContactPage() {
                 </span>
                 <input
                   type="text"
-                  placeholder="Tên công ty"
                   className="mt-2 w-full rounded-xl border border-slate-200 px-4 py-3.5 text-sm transition-all focus:border-[#009fe3] focus:ring-2 focus:ring-[#009fe3]/20 focus:outline-none"
                 />
               </label>
@@ -182,7 +210,7 @@ export default function ContactPage() {
               </span>
               <select className="mt-2 w-full rounded-xl border border-slate-200 px-4 py-3.5 text-sm transition-all focus:border-[#009fe3] focus:ring-2 focus:ring-[#009fe3]/20 focus:outline-none">
                 <option value="">-- Chọn giải pháp --</option>
-                <option>Giám sát Lone Worker (làm việc một mình)</option>
+                <option>Giám sát Lone Worker</option>
                 <option>Giám sát nhà máy & công trường</option>
                 <option>Access Control & Chấm công</option>
                 <option>Quản lý phương tiện & vật tư</option>
@@ -196,7 +224,6 @@ export default function ContactPage() {
               </span>
               <textarea
                 rows={4}
-                placeholder="Mô tả chi tiết về nhu cầu, quy mô nhà máy/công trường, số lượng nhân sự cần giám sát..."
                 className="mt-2 w-full resize-none rounded-xl border border-slate-200 px-4 py-3.5 text-sm transition-all focus:border-[#009fe3] focus:ring-2 focus:ring-[#009fe3]/20 focus:outline-none"
               />
             </label>
@@ -237,14 +264,6 @@ export default function ContactPage() {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
               </svg>
               028 7307 6661
-            </a>
-            <a
-              href="https://zalo.me/02873076661"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 rounded-full border-2 border-white/40 bg-transparent px-8 py-4 text-lg font-semibold text-white transition hover:bg-white/10 hover:border-white"
-            >
-              Chat Zalo
             </a>
           </div>
         </div>

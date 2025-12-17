@@ -2,44 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-
-const products = [
-  {
-    id: 1,
-    name: "Nón bảo hộ thông minh & Tag định vị",
-    description: "Nón bảo hộ tích hợp tag định vị thông minh, giám sát an toàn và theo dõi vị trí người lao động theo thời gian thực.",
-    specs: ["Tích hợp tag định vị", "Cảnh báo va chạm", "Pin sử dụng lâu", "Nhỏ gọn, nhẹ", "Nút SOS"],
-    image: "/images/HSafe-helmet-with-tag.jpeg",
-  },
-  {
-    id: 2,
-    name: "Anchor (Trạm cố định)",
-    description: "Thiết bị neo/trạm cố định để định vị chính xác vị trí của tag trong nhà máy và công trường.",
-    specs: ["Hỗ trợ mạng LAN/WiFi", "Kết nối 4G", "Chống nước IP67", "Kết nối dây hoặc không dây"],
-    image: "/images/HSafe-anchor.png",
-  },
-  {
-    id: 3,
-    name: "Tag xe & Quản lý lộ trình",
-    description: "Thiết bị gắn trên phương tiện để quản lý, giám sát xe cộ ra vào công trường và theo dõi lộ trình di chuyển.",
-    specs: ["Định vị GPS", "Nhận diện phương tiện", "Theo dõi lộ trình", "Lịch sử di chuyển", "Báo cáo tự động"],
-    image: "/images/HSafe-vehicle-tag.jpeg",
-  },
-  {
-    id: 4,
-    name: "Tag vật tư (Pallet Tag)",
-    description: "Thiết bị theo dõi và quản lý vật tư, pallet, thiết bị trên công trường.",
-    specs: ["Định vị tài sản", "Cảnh báo di chuyển", "Quản lý kho", "Pin lâu dài"],
-    image: "/images/HSafe-pallet-tag.jpeg",
-  },
-  {
-    id: 5,
-    name: "Đồng hồ thông minh",
-    description: "Đồng hồ đeo tay tích hợp giám sát sức khỏe và định vị cho công nhân.",
-    specs: ["Đo nhịp tim", "Phát hiện té ngã", "Định vị thời gian thực", "Nút SOS"],
-    image: "/images/HSafe-watch.png",
-  },
-];
+import { products } from "@/data/products";
 
 export default function ProductsPage() {
   return (
@@ -69,7 +32,7 @@ export default function ProductsPage() {
             bền bỉ, chính xác và đáng tin cậy.
           </p>
         </div>
-        
+
         {/* Wave divider */}
         <div className="absolute bottom-0 left-0 right-0">
           <svg viewBox="0 0 1440 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -78,23 +41,37 @@ export default function ProductsPage() {
         </div>
       </section>
 
+      {/* Breadcrumb below hero */}
+      <section className="py-3">
+        <div className="mx-auto flex max-w-7xl items-center px-6 text-xs font-medium text-slate-500 lg:px-10">
+          <nav className="flex flex-wrap items-center gap-2">
+            <Link href="/" className="transition-colors hover:text-slate-900">
+              Trang chủ
+            </Link>
+            <span className="text-slate-400">›</span>
+            <span className="text-slate-800">Sản phẩm</span>
+          </nav>
+        </div>
+      </section>
+
       {/* Products Grid */}
       <section className="py-16">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {products.map((product) => (
-              <div
+              <Link
                 key={product.id}
+                href={`/products/${product.slug}`}
                 className="group flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:shadow-xl hover:border-[var(--brand-blue)]/30"
               >
                 {/* Image - Fixed height */}
-                <div className="relative h-52 w-full flex-shrink-0 bg-gradient-to-br from-slate-100 to-slate-200">
+                <div className="relative h-52 w-full flex-shrink-0 bg-gradient-to-br from-slate-100 to-slate-200 overflow-hidden">
                   {product.image ? (
                     <Image
                       src={product.image}
                       alt={product.name}
                       fill
-                      className="object-cover"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                   ) : (
                     <div className="flex h-full w-full items-center justify-center">
@@ -116,46 +93,36 @@ export default function ProductsPage() {
                       </div>
                     </div>
                   )}
+                  {/* Hover overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                 </div>
 
                 {/* Content */}
                 <div className="flex flex-1 flex-col p-5">
-                  {/* Title - Fixed height */}
-                  <h3 className="h-14 text-lg font-bold text-slate-800 group-hover:text-[var(--brand-blue)] transition-colors line-clamp-2">
+                  {/* Title */}
+                  <h3 className="mt-2 text-lg font-bold text-slate-800 group-hover:text-[var(--brand-blue)] transition-colors line-clamp-2">
                     {product.name}
                   </h3>
                   
-                  {/* Description - Fixed height */}
-                  <p className="mt-2 h-16 text-sm leading-relaxed text-slate-600 line-clamp-3">
-                    {product.description}
+                  {/* Short description */}
+                  <p className="mt-2 text-sm leading-relaxed text-slate-600 line-clamp-3">
+                    {product.shortDescription}
                   </p>
 
-                  {/* Specs - Fixed height */}
-                  <div className="mt-3 h-20 flex flex-wrap content-start gap-1.5 overflow-hidden">
-                    {product.specs.map((spec, idx) => (
-                      <span
-                        key={idx}
-                        className="h-fit rounded-full bg-[var(--brand-blue)]/10 px-2.5 py-1 text-xs font-medium text-[var(--brand-blue)]"
-                      >
-                        {spec}
-                      </span>
-                    ))}
-                  </div>
-
-                  {/* Contact Button - Always at bottom */}
+                  {/* CTA Button - Always at bottom */}
                   <div className="mt-auto pt-4">
-                    <Link
-                      href="/contact"
-                      className="flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[var(--brand-green)] to-[#008f45] px-5 py-3 text-sm font-semibold text-white shadow-md transition hover:brightness-110 hover:-translate-y-0.5"
+                    <div
+                      className="flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[var(--brand-green)] to-[#008f45] px-5 py-3 text-sm font-semibold text-white shadow-md transition group-hover:brightness-110 group-hover:-translate-y-0.5"
                     >
                       <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                       </svg>
-                      Liên hệ báo giá
-                    </Link>
+                      Xem chi tiết sản phẩm
+                    </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
@@ -192,4 +159,3 @@ export default function ProductsPage() {
     </main>
   );
 }
-

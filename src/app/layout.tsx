@@ -21,6 +21,14 @@ export const metadata: Metadata = {
   description:
     "Giải pháp an toàn toàn diện cho con người và môi trường làm việc. Giám sát sức khỏe, an toàn, kiểm soát ra vào, PCCC và môi trường.",
   metadataBase: new URL("https://hsafe.vn"),
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/images/HSafe-mini-logo.png", type: "image/png", sizes: "32x32" },
+    ],
+    shortcut: [{ url: "/favicon.ico" }],
+    apple: [{ url: "/images/HSafe-mini-logo.png" }],
+  },
   keywords: [
     "HSafe",
     "an toàn lao động",
@@ -40,9 +48,10 @@ export const metadata: Metadata = {
 };
 
 const navLinks = [
+  { label: "Trang chủ", href: "/" },
   { label: "Sản phẩm", href: "/products" },
   { label: "Giải pháp", href: "/solutions" },
-  { label: "Về chúng tôi", href: "/about" },
+  { label: "Giới thiệu", href: "/introduction" },
   { label: "Liên hệ", href: "/contact" },
 ];
 
@@ -109,13 +118,13 @@ export default function RootLayout({
 
               {/* Nav - white text with highlighted button */}
               <nav className="hidden items-center gap-2 lg:flex">
-                {/* Highlighted button for customers */}
-                <Link
+                {/* Highlighted button for customers - temporarily hidden */}
+                {/* <Link
                   href="/customers"
                   className="rounded-full bg-white/20 px-5 py-2 text-sm font-semibold text-white backdrop-blur-sm transition hover:bg-white/30"
                 >
                   Dành cho khách hàng
-                </Link>
+                </Link> */}
                 {navLinks.map((link) => (
                   <Link key={link.href} href={link.href} className="px-4 py-2 text-sm font-medium text-white/90 transition-colors duration-150 hover:text-white">
                     {link.label}
@@ -235,7 +244,7 @@ export default function RootLayout({
                   />
                 </div>
                 <p className="text-sm leading-relaxed text-white/60">
-                  Giải pháp an toàn toàn diện cho con người và môi trường làm việc.
+                  Giải pháp truyền tin và cảnh báo sớm tai nạn lao động hàng đầu.
                 </p>
               </div>
               <div>
@@ -249,15 +258,27 @@ export default function RootLayout({
               <div>
                 <h4 className="mb-4 font-semibold text-white">Sản phẩm</h4>
                 <ul className="space-y-2 text-sm text-white/60">
-                  <li><Link href="/products" className="hover:text-white">Nón bảo hộ & Tag định vị</Link></li>
-                  <li><Link href="/products" className="hover:text-white">Anchor & Tag định vị</Link></li>
-                  <li><Link href="/products" className="hover:text-white">Thiết bị giám sát</Link></li>
+                  <li>
+                    <Link href="/products" className="hover:text-white">
+                      HSafe Safety Helmet Tag
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/products" className="hover:text-white">
+                      HSafe Anchor
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/products" className="hover:text-white">
+                      HSafe Vehicle Tag
+                    </Link>
+                  </li>
                 </ul>
               </div>
               <div>
                 <h4 className="mb-4 font-semibold text-white">Công ty</h4>
                 <ul className="space-y-2 text-sm text-white/60">
-                  <li><Link href="/about" className="hover:text-white">Về chúng tôi</Link></li>
+                  <li><Link href="/introduction" className="hover:text-white">Giới thiệu</Link></li>
                   <li><Link href="/customers" className="hover:text-white">Khách hàng</Link></li>
                   <li><Link href="/contact" className="hover:text-white">Liên hệ</Link></li>
                 </ul>
@@ -267,7 +288,15 @@ export default function RootLayout({
                 <ul className="space-y-2 text-sm text-white/60">
                   <li>50 Đường số 2, KDC Khang An, P. Long Trường, TP. Thủ Đức</li>
                   <li>Hotline: 028 7307 6661</li>
-                  <li>Email: info@hsafe.vn</li>
+                  <li>
+                    Email:{" "}
+                    <a
+                      href="mailto:contact@hsafe.net"
+                      className="text-white/80 hover:text-white underline underline-offset-2"
+                    >
+                      contact@hsafe.net
+                    </a>
+                  </li>
                 </ul>
               </div>
             </div>

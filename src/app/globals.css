@@ -20,10 +20,12 @@
   --card-shadow: rgba(0, 159, 227, 0.12);
 }
 
+/* Tắt chế độ nền tối tự động theo hệ điều hành để giữ giao diện nền sáng đồng nhất */
+/* Nếu sau này cần dark mode, hãy triển khai theme thủ công thay vì override toàn bộ biến màu nền */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #ffffff;
+    --foreground: #1a1a2e;
   }
 }
 

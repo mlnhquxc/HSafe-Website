@@ -2,42 +2,83 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useRef } from "react";
+
+function AutoPlayVideo({ src, poster }: { src: string; poster?: string }) {
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+
+  useEffect(() => {
+    const videoEl = videoRef.current;
+    if (!videoEl) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        if (!entry || !videoEl) return;
+
+        if (entry.isIntersecting) {
+          videoEl.play().catch(() => {
+            // Ignore autoplay blocking errors
+          });
+        } else {
+          videoEl.pause();
+        }
+      },
+      { threshold: 0.4 }
+    );
+
+    observer.observe(videoEl);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
+  return (
+    <video
+      ref={videoRef}
+      className="h-full w-full object-cover"
+      src={src}
+      muted
+      loop
+      playsInline
+      poster={poster}
+    />
+  );
+}
 
 const solutions = [
   {
     id: 1,
     name: "Giám sát nhân sự làm việc một mình",
-    subtitle: "Lone Worker Monitoring",
     description:
       "Giải pháp bảo vệ công nhân làm việc đơn lẻ tại các khu vực nguy hiểm. Tự động phát hiện té ngã, bất động và gửi cảnh báo SOS khi có sự cố.",
     features: [
-      "Phát hiện té ngã tự động",
-      "Cảnh báo bất động (Man-down)",
+      "Phát hiện té ngã",
+      "Cảnh báo va chạm",
       "Nút SOS khẩn cấp",
       "Định vị thời gian thực",
-      "Thông báo đến bộ phận an toàn",
+      "Theo dõi sinh trắc học",
     ],
-    image: null,
+    image: "/images/HSafe-giam-sat-nhan-su-lam-viec-1-minh.jpeg",
   },
   {
     id: 2,
     name: "Giám sát tập trung nhà máy & công trường",
-    subtitle: "Centralized Factory & Site Monitoring",
     description:
-      "Hệ thống giám sát toàn diện cho nhà máy, cảng, công trình xây dựng. Theo dõi vị trí và trạng thái của toàn bộ nhân sự trên một dashboard tập trung.",
+      "Hệ thống giám sát toàn diện cho nhà máy, cảng, công trình xây dựng. Theo dõi vị trí và trạng thái của toàn bộ nhân sự trên một nền tảng tập trung.",
     features: [
       "Dashboard giám sát tập trung",
       "Định vị toàn bộ nhân sự",
-      "Cảnh báo vùng nguy hiểm",
+      "Cảnh báo vùng nguy hiểm / vùng cấm",
       "Thống kê, báo cáo tự động",
-      "Tích hợp nhà thầu thi công",
+      "Đa nền tảng quản lý (Web, App)",
     ],
-    image: null,
+    image: "/images/HSafe-tap-trung.jpg",
   },
   {
     id: 3,
     name: "Access Control & Chấm công",
-    subtitle: "Access Control + Camera Integration",
     description:
       "Giải pháp kiểm soát ra vào kết hợp chấm công tự động và camera nhận diện. Quản lý chặt chẽ ai được phép vào khu vực nào.",
     features: [
@@ -52,7 +93,6 @@ const solutions = [
   {
     id: 4,
     name: "Giám sát phương tiện & lộ trình",
-    subtitle: "Vehicle & Route Monitoring",
     description:
       "Theo dõi và quản lý toàn bộ phương tiện ra vào công trường. Giám sát lộ trình, tốc độ và hành vi lái xe.",
     features: [
@@ -62,7 +102,7 @@ const solutions = [
       "Quản lý nhiên liệu",
       "Báo cáo hành trình",
     ],
-    image: null,
+    image: "/images/HSafe-giam-sat-phuong-tien-lo-trinh.png",
   },
 ];
 
@@ -88,15 +128,15 @@ export default function SolutionsPage() {
         
         <div className="relative mx-auto max-w-7xl px-6 text-center text-white lg:px-10">
           <h1 className="text-4xl font-extrabold tracking-tight md:text-5xl lg:text-6xl">
-            <span className="text-white">Một nền tảng</span>
+            <span className="text-highlight-gold">Giải pháp</span>
+            <span className="text-white"> giám sát</span>
             <br />
-            <span className="text-highlight-gold">giám sát</span>
-            <span className="text-white"> — </span>
-            <span className="text-safety">trọn vẹn an toàn</span>
+            <span className="text-white">trọn vẹn</span>
+            <span className="text-safety"> an toàn</span>
           </h1>
           <p className="mx-auto mt-8 max-w-2xl text-lg text-white/80 md:text-xl">
             Giải pháp toàn diện cho nhà máy, cảng biển, công trường — 
-            kiểm soát chủ động mọi rủi ro từ một dashboard duy nhất.
+            kiểm soát chủ động mọi rủi ro trên 1 dashboard duy nhất.
           </p>
         </div>
         
@@ -105,6 +145,19 @@ export default function SolutionsPage() {
           <svg viewBox="0 0 1440 100" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M0 50L60 45.7C120 41.3 240 32.7 360 30.8C480 29 600 34 720 42.3C840 50.7 960 62.3 1080 64.2C1200 66 1320 57 1380 52.8L1440 48.7V100H1380C1320 100 1200 100 1080 100C960 100 840 100 720 100C600 100 480 100 360 100C240 100 120 100 60 100H0V50Z" fill="white"/>
           </svg>
+        </div>
+      </section>
+
+      {/* Breadcrumb below hero */}
+      <section className="py-3">
+        <div className="mx-auto flex max-w-7xl items-center px-6 text-xs font-medium text-slate-500 lg:px-10">
+          <nav className="flex flex-wrap items-center gap-2">
+            <Link href="/" className="transition-colors hover:text-slate-900">
+              Trang chủ
+            </Link>
+            <span className="text-slate-400">›</span>
+            <span className="text-slate-800">Giải pháp</span>
+          </nav>
         </div>
       </section>
 
@@ -124,7 +177,12 @@ export default function SolutionsPage() {
                   className={`relative ${index % 2 === 1 ? "lg:order-2" : ""}`}
                 >
                   <div className="relative h-80 w-full overflow-hidden rounded-2xl bg-gradient-to-br from-slate-100 to-slate-200 shadow-lg lg:h-96">
-                    {solution.image ? (
+                    {solution.id === 3 ? (
+                      <AutoPlayVideo
+                        src="/images/HSafe-video-cham-cong.mp4"
+                        poster="/images/HSafe-helmet-with-tag.png"
+                      />
+                    ) : solution.image ? (
                       <Image
                         src={solution.image}
                         alt={solution.name}
@@ -166,10 +224,7 @@ export default function SolutionsPage() {
 
                 {/* Content */}
                 <div className={index % 2 === 1 ? "lg:order-1" : ""}>
-                  <span className="text-sm font-medium uppercase tracking-wider text-[var(--brand-green)]">
-                    {solution.subtitle}
-                  </span>
-                  <h2 className="mt-2 text-2xl font-bold text-slate-800 md:text-3xl">
+                  <h2 className="text-2xl font-bold text-slate-800 md:text-3xl">
                     {solution.name}
                   </h2>
                   <p className="mt-4 leading-relaxed text-slate-600">
@@ -204,9 +259,6 @@ export default function SolutionsPage() {
                     >
                       Liên hệ tư vấn
                     </Link>
-                    <span className="text-sm text-slate-500">
-                      Giá: Liên hệ để được báo giá chi tiết
-                    </span>
                   </div>
                 </div>
               </div>

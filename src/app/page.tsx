@@ -12,18 +12,17 @@ export default function Home() {
         <div className="pointer-events-none absolute -left-32 -top-32 h-96 w-96 rounded-full bg-white/10 blur-3xl" />
         <div className="pointer-events-none absolute -bottom-40 -right-40 h-[500px] w-[500px] rounded-full bg-white/10 blur-3xl" />
 
-        <div className="relative z-10 mx-auto grid max-w-7xl gap-12 px-6 pb-20 pt-32 lg:grid-cols-2 lg:items-center lg:px-10 lg:pt-36 pl-20 lg:pl-24">
+        <div className="relative z-10 mx-auto grid max-w-7xl gap-12 px-6 pb-20 pt-32 lg:grid-cols-2 lg:items-center lg:px-10 lg:pt-36">
           {/* Left column — text content */}
           <div className="flex flex-col gap-8 text-white lg:max-w-xl text-left items-start">
             <h1 className="hero-heading text-left">
-              <span className="text-safety text-shimmer inline-block">An toàn lao động</span>
+              <span className="text-safety text-shimmer inline-block">Giải pháp truyền tin</span>
               <br />
-              <span className="text-white/90">& phát hiện sớm </span>
+              <span className="text-white/90">& cảnh báo sớm </span>
               <span className="text-danger text-shimmer inline-block">tai nạn lao động</span>
             </h1>
             <p className="hero-subtext text-left">
-              Giám sát an toàn lao động thời gian thực cho nhà máy và công trường — 
-              được nghiên cứu & phát triển bởi đội ngũ kỹ sư HSafe.
+              Giải pháp truyền tin và cảnh báo sớm tai nạn lao động
             </p>
             <div className="flex flex-wrap items-center gap-5 pt-4">
               <Link href="/contact" className="btn-primary">
@@ -40,7 +39,7 @@ export default function Home() {
 
           {/* Right column — hero image only */}
           <div className="relative flex items-end justify-center lg:justify-end">
-            <div className="relative h-[460px] w-[360px] overflow-hidden rounded-3xl border-4 border-white/20 shadow-2xl lg:h-[600px] lg:w-[520px]">
+            <div className="relative h-[400px] w-[320px] overflow-hidden rounded-3xl border-4 border-white/20 shadow-2xl lg:h-[520px] lg:w-[450px]">
               <Image
                 src="/images/HSafe-hero-2.png"
                 alt="HSafe - An toàn lao động"

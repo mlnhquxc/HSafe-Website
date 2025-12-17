@@ -73,6 +73,19 @@ export default function ServicesPage() {
         </div>
       </section>
 
+      {/* Breadcrumb below hero */}
+      <section className="py-3">
+        <div className="mx-auto flex max-w-7xl items-center px-6 text-xs font-medium text-slate-500 lg:px-10">
+          <nav className="flex flex-wrap items-center gap-2">
+            <Link href="/" className="transition-colors hover:text-slate-900">
+              Trang chủ
+            </Link>
+            <span className="text-slate-400">›</span>
+            <span className="text-slate-800">Dịch vụ</span>
+          </nav>
+        </div>
+      </section>
+
       {/* Services grid */}
       <section className="section-gap bg-white">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">

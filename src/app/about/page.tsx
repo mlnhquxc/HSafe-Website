@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function AboutPage() {
   return (
     <>
-      {/* Hero */}
+      {/* Hero - Introduction */}
       <section className="hero-gradient relative overflow-hidden pb-24 pt-36">
         {/* Background decoration */}
         <div className="absolute inset-0 overflow-hidden">
@@ -14,11 +14,8 @@ export default function AboutPage() {
         
         <div className="relative mx-auto max-w-7xl px-6 text-center text-white lg:px-10">
           <h1 className="text-4xl font-extrabold tracking-tight md:text-5xl lg:text-6xl">
-            <span className="text-highlight-gold">Sứ mệnh</span>
-            <span className="text-white"> của chúng tôi</span>
-            <br />
-            <span className="text-white">là </span>
-            <span className="text-safety">an toàn con người</span>
+            <span className="text-highlight-gold">Giới thiệu</span>
+            <span className="text-white"> về chúng tôi</span>
           </h1>
           <p className="mx-auto mt-8 max-w-2xl text-lg text-white/80 md:text-xl">
             HSafe - Human Safety Goes First. Đồng hành cùng doanh nghiệp trong hành trình bảo vệ người lao động.
@@ -33,14 +30,24 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Breadcrumb below hero */}
+      <section className="py-3">
+        <div className="mx-auto flex max-w-7xl items-center px-6 text-xs font-medium text-slate-500 lg:px-10">
+          <nav className="flex flex-wrap items-center gap-2">
+            <Link href="/" className="transition-colors hover:text-slate-900">
+              Trang chủ
+            </Link>
+            <span className="text-slate-400">›</span>
+            <span className="text-slate-800">Giới thiệu</span>
+          </nav>
+        </div>
+      </section>
+
       {/* About Content */}
-      <section className="section-gap bg-white">
+      <section className="bg-white pt-10 pb-20 lg:pt-12 lg:pb-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <div className="grid gap-16 lg:grid-cols-2 lg:items-center">
-            <div>
-              <p className="text-sm font-bold uppercase tracking-widest text-[var(--brand-blue)]">
-                Câu chuyện của chúng tôi
-              </p>
+          <div>
               <h2 className="mt-3 text-3xl font-bold text-[var(--foreground)] md:text-4xl">
                 Sứ mệnh bảo vệ con người
               </h2>
@@ -71,8 +78,8 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Values */}
-      <section className="section-gap bg-slate-50">
+      {/* Core values */}
+      <section className="bg-slate-50 py-20 lg:py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <div className="mb-16 text-center">
             <p className="text-sm font-bold uppercase tracking-widest text-[var(--brand-blue)]">
