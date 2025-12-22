@@ -1,14 +1,18 @@
 import type { NextConfig } from "next";
 
+// GitHub Pages subpath - change this if your repo name is different
+const basePath = '/HSafe-Website';
+
 const nextConfig: NextConfig = {
   output: 'export',
   images: {
     unoptimized: true,
   },
-  // Nếu deploy trên subpath (ví dụ: https://username.github.io/repo-name/)
-  // Uncomment và thay đổi basePath & assetPrefix:
-  // basePath: '/repo-name',
-  // assetPrefix: '/repo-name',
+  basePath,
+  assetPrefix: basePath,
+  env: {
+    NEXT_PUBLIC_BASE_PATH: basePath,
+  },
   turbopack: {
     root: process.cwd(),
   },
