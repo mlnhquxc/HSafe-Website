@@ -4,6 +4,11 @@ import Link from "next/link";
 import { Be_Vietnam_Pro, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
+const assetBase = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
+const withBase = (path: string) =>
+  assetBase ? `${assetBase}${path.startsWith("/") ? path : `/${path}`}` : path;
+
 const beVietnamPro = Be_Vietnam_Pro({
   variable: "--font-be-vietnam",
   subsets: ["latin", "vietnamese"],
@@ -20,14 +25,17 @@ export const metadata: Metadata = {
   title: "HSafe | Human Safety Goes First",
   description:
     "Giải pháp an toàn toàn diện cho con người và môi trường làm việc. Giám sát sức khỏe, an toàn, kiểm soát ra vào, PCCC và môi trường.",
-  metadataBase: new URL("https://hsafe.vn"),
   icons: {
     icon: [
-      { url: "/favicon.ico" },
-      { url: "/images/HSafe-mini-logo.png", type: "image/png", sizes: "32x32" },
+      { url: withBase("/favicon.ico") },
+      {
+        url: withBase("/images/HSafe-mini-logo.png"),
+        type: "image/png",
+        sizes: "32x32",
+      },
     ],
-    shortcut: [{ url: "/favicon.ico" }],
-    apple: [{ url: "/images/HSafe-mini-logo.png" }],
+    shortcut: [{ url: withBase("/favicon.ico") }],
+    apple: [{ url: withBase("/images/HSafe-mini-logo.png") }],
   },
   keywords: [
     "HSafe",

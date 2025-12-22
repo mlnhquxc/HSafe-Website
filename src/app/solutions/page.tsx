@@ -3,6 +3,7 @@
 import Image from "@/components/Image";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
+import { getImagePath } from "@/lib/image-path";
 
 function AutoPlayVideo({ src, poster }: { src: string; poster?: string }) {
   const videoRef = useRef<HTMLVideoElement | null>(null);
@@ -34,15 +35,18 @@ function AutoPlayVideo({ src, poster }: { src: string; poster?: string }) {
     };
   }, []);
 
+  const resolvedSrc = getImagePath(src);
+  const resolvedPoster = poster ? getImagePath(poster) : undefined;
+
   return (
     <video
       ref={videoRef}
       className="h-full w-full object-cover"
-      src={src}
+      src={resolvedSrc}
       muted
       loop
       playsInline
-      poster={poster}
+      poster={resolvedPoster}
     />
   );
 }
