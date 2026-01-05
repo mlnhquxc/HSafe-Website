@@ -219,7 +219,7 @@ Vật tư giá trị cao: Các lô cáp điện/cáp đồng (chống trộm lõ
     Tìm kiếm trong tích tắc: Không còn cảnh kỹ sư tốn 30 phút mỗi ngày chỉ để đi tìm cái máy đo laser hay xe nâng. Định vị chính xác vị trí tài sản trên bản đồ số. Chỉ cần một thao tác quét để biết số lượng tài sản hiện có.
 
     Tối ưu chi phí vận hành:
-    Giám sát hiệu suất: Biết chính xác máy phát điện hay xe lu đã hoạt động bao nhiêu giờ thực tế (dựa trên cảm biến rung/di chuyển) để tránh lãng phí nhiên liệu hoặc chi phí thuê máy. Lên lịch bảo trì: Theo dõi lịch sử sử dụng để chủ động bảo dưỡng, kéo dài tuổi thọ thiết bị.`,
+Giám sát hiệu suất: Biết chính xác máy phát điện hay xe lu đã hoạt động bao nhiêu giờ thực tế (dựa trên cảm biến rung/di chuyển) để tránh lãng phí nhiên liệu hoặc chi phí thuê máy. Lên lịch bảo trì: Theo dõi lịch sử sử dụng để chủ động bảo dưỡng, kéo dài tuổi thọ thiết bị.`,
     specs: ["Định vị tài sản real-time", "Chống trộm cắp", "Giám sát thời gian hoạt động", "Pin lên đến 2 năm", "Chống nước IP65", "Kích thước nhỏ gọn"],
     features: [
       {
