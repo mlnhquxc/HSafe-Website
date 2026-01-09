@@ -92,7 +92,7 @@ const solutions = [
       "Phân quyền khu vực",
       "Báo cáo thời gian làm việc",
     ],
-    image: null,
+    image: "/images/HSafe_chamcong.JPG",
   },
   {
     id: 4,
@@ -181,12 +181,7 @@ export default function SolutionsPage() {
                   className={`relative ${index % 2 === 1 ? "lg:order-2" : ""}`}
                 >
                   <div className="relative h-80 w-full overflow-hidden rounded-2xl bg-gradient-to-br from-slate-100 to-slate-200 shadow-lg lg:h-96">
-                    {solution.id === 3 ? (
-                      <AutoPlayVideo
-                        src="/images/HSafe-video-cham-cong.mp4"
-                        poster="/images/HSafe-helmet-with-tag.png"
-                      />
-                    ) : solution.image ? (
+                    {solution.image ? (
                       <Image
                         src={solution.image}
                         alt={solution.name}
