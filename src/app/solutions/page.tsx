@@ -1,55 +1,5 @@
-"use client";
-
 import Image from "@/components/Image";
 import Link from "next/link";
-import { useEffect, useRef } from "react";
-import { getImagePath } from "@/lib/image-path";
-
-function AutoPlayVideo({ src, poster }: { src: string; poster?: string }) {
-  const videoRef = useRef<HTMLVideoElement | null>(null);
-
-  useEffect(() => {
-    const videoEl = videoRef.current;
-    if (!videoEl) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const entry = entries[0];
-        if (!entry || !videoEl) return;
-
-        if (entry.isIntersecting) {
-          videoEl.play().catch(() => {
-            // Ignore autoplay blocking errors
-          });
-        } else {
-          videoEl.pause();
-        }
-      },
-      { threshold: 0.4 }
-    );
-
-    observer.observe(videoEl);
-
-    return () => {
-      observer.disconnect();
-    };
-  }, []);
-
-  const resolvedSrc = getImagePath(src);
-  const resolvedPoster = poster ? getImagePath(poster) : undefined;
-
-  return (
-    <video
-      ref={videoRef}
-      className="h-full w-full object-cover"
-      src={resolvedSrc}
-      muted
-      loop
-      playsInline
-      poster={resolvedPoster}
-    />
-  );
-}
 
 const solutions = [
   {
