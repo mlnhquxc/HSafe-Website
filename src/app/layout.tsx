@@ -143,17 +143,10 @@ export default function RootLayout({
               {/* Auth buttons - white style */}
               <div className="flex items-center gap-3">
                 <Link
-                  href="/contact"
+                  href="https://dashboard.hsafe.net/"
                   className="rounded-full border-2 border-white/70 bg-transparent px-6 py-2 text-sm font-medium text-white transition hover:bg-white/10"
                 >
                   Đăng nhập
-                </Link>
-                <Link
-                  href="/contact"
-                  className="rounded-full bg-[var(--accent)] px-6 py-2 text-sm font-semibold text-white shadow-lg transition hover:brightness-110"
-                  style={{ boxShadow: "0 4px 14px rgba(0,166,81,0.35)" }}
-                >
-                  Đăng ký
                 </Link>
               </div>
             </div>
