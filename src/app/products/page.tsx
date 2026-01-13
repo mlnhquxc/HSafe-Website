@@ -13,10 +13,6 @@ export default function ProductsPage() {
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute -top-1/2 -right-1/4 h-96 w-96 rounded-full bg-white/5 blur-3xl" />
           <div className="absolute -bottom-1/2 -left-1/4 h-96 w-96 rounded-full bg-white/5 blur-3xl" />
-          {/* Floating tech elements */}
-          <div className="absolute top-20 left-[10%] h-2 w-2 rounded-full bg-cyan-400/40 animate-float" />
-          <div className="absolute top-40 right-[15%] h-3 w-3 rounded-full bg-green-400/30 animate-float delay-200" />
-          <div className="absolute bottom-32 left-[20%] h-2 w-2 rounded-full bg-cyan-300/30 animate-float delay-300" />
         </div>
         
         <div className="relative mx-auto max-w-7xl px-6 text-center text-white lg:px-10">
