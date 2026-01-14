@@ -17,6 +17,8 @@ const nextConfig: NextConfig = {
   env: {
     NEXT_PUBLIC_BASE_PATH: isProd ? repoBasePath : "",
   },
+  // Fix cross-origin warning for dev server
+  allowedDevOrigins: ["v1.hsafe.net"],
   turbopack: {
     root: process.cwd(),
   },

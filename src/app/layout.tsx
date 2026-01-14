@@ -28,14 +28,8 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: withBase("/favicon.ico") },
-      {
-        url: withBase("/images/HSafe-mini-logo.png"),
-        type: "image/png",
-        sizes: "32x32",
-      },
     ],
     shortcut: [{ url: withBase("/favicon.ico") }],
-    apple: [{ url: withBase("/images/HSafe-mini-logo.png") }],
   },
   keywords: [
     "HSafe",
