@@ -19,8 +19,15 @@ const nextConfig: NextConfig = {
   },
   // Fix cross-origin warning for dev server
   allowedDevOrigins: ["v1.hsafe.net"],
-  turbopack: {
-    root: process.cwd(),
+  // Giảm CPU: disable experimental features
+  experimental: {
+    // Tắt optimizations không cần thiết
+    optimizePackageImports: [],
+  },
+  // Giảm memory/CPU khi build
+  onDemandEntries: {
+    maxInactiveAge: 60 * 1000,
+    pagesBufferLength: 2,
   },
 };
 
