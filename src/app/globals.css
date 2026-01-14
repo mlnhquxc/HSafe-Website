@@ -72,7 +72,7 @@ body {
    HERO TEXT EFFECTS - Animated Gradient Glow
 ═══════════════════════════════════════════════════════════════ */
 
-/* Animated gradient shift */
+/* Animated gradient shift - Optimized for performance */
 @keyframes gradient-shift {
   0%, 100% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
@@ -84,19 +84,17 @@ body {
   100% { background-position: 200% center; }
 }
 
-/* Glow pulse */
+/* Glow pulse - Removed heavy filter effects */
 @keyframes glow-pulse {
   0%, 100% { 
-    filter: drop-shadow(0 0 20px currentColor) drop-shadow(0 0 40px currentColor);
     opacity: 1;
   }
   50% { 
-    filter: drop-shadow(0 0 30px currentColor) drop-shadow(0 0 60px currentColor);
     opacity: 0.95;
   }
 }
 
-/* Safety text - Cyan/Teal gradient with subtle glow */
+/* Safety text - Cyan/Teal gradient with optimized glow */
 .text-safety {
   background: linear-gradient(
     90deg,
@@ -110,14 +108,13 @@ body {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  animation: gradient-shift 4s ease infinite;
-  text-shadow: 
-    0 0 4px rgba(103, 232, 249, 0.6),
-    0 0 8px rgba(34, 211, 238, 0.4),
-    0 0 12px rgba(6, 182, 212, 0.2);
+  will-change: background-position;
+  transform: translateZ(0);
+  animation: gradient-shift 6s ease infinite;
+  text-shadow: 0 0 8px rgba(34, 211, 238, 0.5);
 }
 
-/* Danger/Warning text - Orange/Yellow gradient with subtle glow */
+/* Danger/Warning text - Orange/Yellow gradient with optimized glow */
 .text-danger {
   background: linear-gradient(
     90deg,
@@ -131,11 +128,10 @@ body {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  animation: gradient-shift 3s ease infinite;
-  text-shadow: 
-    0 0 4px rgba(253, 224, 71, 0.7),
-    0 0 8px rgba(250, 204, 21, 0.5),
-    0 0 12px rgba(245, 158, 11, 0.3);
+  will-change: background-position;
+  transform: translateZ(0);
+  animation: gradient-shift 5s ease infinite;
+  text-shadow: 0 0 8px rgba(250, 204, 21, 0.6);
 }
 
 /* Gold highlight text - for emphasis words like "Sứ mệnh" */
@@ -145,10 +141,10 @@ body {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  animation: gradient-shift 4s ease infinite;
-  text-shadow: 
-    0 0 4px rgba(251, 191, 36, 0.6),
-    0 0 8px rgba(245, 158, 11, 0.4);
+  will-change: background-position;
+  transform: translateZ(0);
+  animation: gradient-shift 6s ease infinite;
+  text-shadow: 0 0 6px rgba(245, 158, 11, 0.5);
 }
 
 /* Cyan highlight text - for emphasis words like "hỗ trợ" */
@@ -158,10 +154,21 @@ body {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  animation: gradient-shift 4s ease infinite;
-  text-shadow: 
-    0 0 4px rgba(103, 232, 249, 0.6),
-    0 0 8px rgba(34, 211, 238, 0.4);
+  will-change: background-position;
+  transform: translateZ(0);
+  animation: gradient-shift 6s ease infinite;
+  text-shadow: 0 0 6px rgba(34, 211, 238, 0.5);
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .text-safety,
+  .text-danger,
+  .text-highlight-gold,
+  .text-highlight-cyan {
+    animation: none;
+    background-position: 50% 50%;
+  }
 }
 
 /* Text shimmer class - kept for compatibility but no overlay */
@@ -257,8 +264,8 @@ body {
 }
 
 .hsafe-node:hover span {
-  transform: scale(1.2);
-  filter: drop-shadow(0 0 10px currentColor);
+  transform: scale(1.2) translateZ(0);
+  will-change: transform;
 }
 
 .hsafe-tooltip {
