@@ -13,7 +13,7 @@ export default function AboutPage() {
         </div>
         
         <div className="relative mx-auto max-w-7xl px-6 text-center text-white lg:px-10">
-          <h1 className="text-4xl font-extrabold tracking-tight md:text-5xl lg:text-6xl">
+          <h1 className="hero-heading text-center">
             <span className="text-white">An toàn con người là</span>
             <br />
             <span className="text-safety text-shimmer inline-block">trên hết</span>

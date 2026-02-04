@@ -178,7 +178,7 @@ body {
 
 /* Custom Components */
 .btn-primary {
-  @apply inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-[var(--brand-green)] to-[#008f45] px-8 py-3.5 text-base font-bold text-white shadow-lg transition-all duration-200;
+  @apply inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-[var(--brand-green)] to-[#008f45] px-6 py-3 text-sm font-bold text-white shadow-lg transition-all duration-200 sm:px-8 sm:py-3.5 sm:text-base;
   box-shadow: 0 4px 15px rgba(0, 166, 81, 0.3);
 }
 
@@ -188,16 +188,16 @@ body {
 }
 
 .btn-secondary {
-  @apply inline-flex items-center justify-center rounded-lg border-2 border-white/30 bg-white/10 px-8 py-3.5 text-base font-bold text-white backdrop-blur-md transition-all duration-200 hover:bg-white/20 hover:border-white/50;
+  @apply inline-flex items-center justify-center rounded-lg border-2 border-white/30 bg-white/10 px-6 py-3 text-sm font-bold text-white backdrop-blur-md transition-all duration-200 hover:bg-white/20 hover:border-white/50 sm:px-8 sm:py-3.5 sm:text-base;
 }
 
 .hero-heading {
-  @apply text-4xl font-extrabold leading-tight tracking-tight text-white md:text-5xl lg:text-6xl;
+  @apply text-3xl font-extrabold leading-tight tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 24px rgba(0, 159, 227, 0.2);
 }
 
 .hero-subtext {
-  @apply max-w-md text-lg leading-relaxed text-white/90 font-medium;
+  @apply max-w-md text-base leading-relaxed text-white/90 font-medium sm:text-lg;
   text-shadow: 0 1px 2px rgba(0,0,0,0.1);
 }
 

@@ -133,14 +133,14 @@ export default function Home() {
       {/* ════════════════════════════════════════════════════════════
           HERO SECTION
       ═════════════════════════════════════════════════════════════ */}
-      <section className="hero-gradient relative min-h-[700px] overflow-hidden lg:min-h-screen">
+      <section className="hero-gradient relative min-h-[600px] overflow-hidden sm:min-h-[700px] lg:min-h-screen">
         {/* Decorative blobs */}
-        <div className="pointer-events-none absolute -left-32 -top-32 h-96 w-96 rounded-full bg-white/10 blur-3xl" />
-        <div className="pointer-events-none absolute -bottom-40 -right-40 h-[500px] w-[500px] rounded-full bg-white/10 blur-3xl" />
+        <div className="pointer-events-none absolute -left-32 -top-32 h-64 w-64 rounded-full bg-white/10 blur-3xl sm:h-96 sm:w-96" />
+        <div className="pointer-events-none absolute -bottom-40 -right-40 h-80 w-80 rounded-full bg-white/10 blur-3xl sm:h-[500px] sm:w-[500px]" />
 
-        <div className="relative z-10 mx-auto grid max-w-7xl gap-12 px-6 pb-20 pt-32 lg:grid-cols-2 lg:items-center lg:px-10 lg:pt-36">
+        <div className="relative z-10 mx-auto grid max-w-7xl gap-8 px-4 pb-24 pt-24 sm:gap-12 sm:px-6 sm:pb-20 sm:pt-32 lg:grid-cols-2 lg:items-center lg:px-10 lg:pt-36">
           {/* Left column — text content */}
-          <div className="flex flex-col gap-8 text-white lg:max-w-xl text-left items-start">
+          <div className="flex flex-col gap-6 text-white sm:gap-8 lg:max-w-xl text-left items-start">
             <h1 className="hero-heading text-left">
               <span className="text-safety text-shimmer inline-block">Giải pháp truyền tin</span>
               <br />
@@ -150,7 +150,7 @@ export default function Home() {
             <p className="hero-subtext text-left">
               Giải pháp truyền tin và cảnh báo sớm tai nạn lao động
             </p>
-            <div className="flex flex-wrap items-center gap-5 pt-4">
+            <div className="flex flex-wrap items-center gap-4 pt-2 sm:gap-5 sm:pt-4">
               <Link href="/contact" className="btn-primary">
                 Liên hệ tư vấn
               </Link>
@@ -162,7 +162,7 @@ export default function Home() {
 
           {/* Right column — hero image */}
           <div className="relative flex items-end justify-center lg:justify-end">
-            <div className="relative h-[400px] w-[320px] overflow-hidden rounded-3xl border-4 border-white/20 shadow-2xl lg:h-[520px] lg:w-[450px]">
+            <div className="relative h-[350px] w-[280px] overflow-hidden rounded-3xl border-4 border-white/20 shadow-2xl sm:h-[400px] sm:w-[320px] lg:h-[520px] lg:w-[450px]">
               <Image
                 src="/images/HSafe-hero.JPG"
                 alt="HSafe - Giải pháp truyền tin và cảnh báo sớm tai nạn lao động"
@@ -176,7 +176,7 @@ export default function Home() {
 
         {/* Wave divider */}
         <div className="absolute bottom-0 left-0 right-0">
-          <svg viewBox="0 0 1440 120" className="w-full text-white">
+          <svg viewBox="0 0 1440 120" className="w-full text-white" preserveAspectRatio="none">
             <path
               fill="currentColor"
               d="M0,64L80,69.3C160,75,320,85,480,80C640,75,800,53,960,48C1120,43,1280,53,1360,58.7L1440,64L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z"
@@ -188,31 +188,30 @@ export default function Home() {
       {/* ════════════════════════════════════════════════════════════
           WHAT IS HSAFE SECTION
       ═════════════════════════════════════════════════════════════ */}
-      <section className="bg-gradient-to-b from-white to-slate-50 py-20 lg:py-24">
-        <div className="mx-auto max-w-7xl px-6 lg:px-10">
-          <div className="mb-12 text-center">
-            <h2 className="text-4xl font-bold text-[var(--foreground)] md:text-5xl">
+      <section className="bg-gradient-to-b from-white to-slate-50 py-12 sm:py-16 lg:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
+          <div className="mb-8 text-center sm:mb-12">
+            <h2 className="text-3xl font-bold text-[var(--foreground)] sm:text-4xl md:text-5xl">
               HSafe là gì?
             </h2>
           </div>
           
-          <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+          <div className="grid gap-8 sm:gap-12 lg:grid-cols-2 lg:items-center">
             {/* Left column - Text content */}
-            <div className="space-y-6">
-              <p className="text-xl font-semibold leading-relaxed text-[var(--foreground)] md:text-2xl">
-                Giải pháp truyền tin và cảnh báo sớm tai nạn lao động
+            <div className="space-y-4 sm:space-y-6">
+              <p className="text-lg font-semibold leading-relaxed text-[var(--foreground)] sm:text-xl md:text-2xl">
+                HSafe là giải pháp truyền tin và cảnh báo sớm tai nạn lao động được thiết kế đặc biệt cho môi trường công trường, 
+                nhà máy và các khu vực làm việc có rủi ro cao.
               </p>
-              <p className="text-lg leading-relaxed text-[var(--text-muted)]">
-                HSafe là hệ thống <strong>Giám sát An toàn Lao động real-time</strong> được thiết kế đặc biệt cho môi trường công trường, 
-                nhà máy và các khu vực làm việc có rủi ro cao. Với công nghệ IoT tiên tiến và độ chính xác định vị dưới 1 mét, 
-                HSafe cung cấp giải pháp toàn diện để quản lý và bảo vệ người lao động.
+              <p className="text-base leading-relaxed text-[var(--text-muted)] sm:text-lg">
+                Với công nghệ IoT tiên tiến và độ chính xác định vị dưới 1 mét, HSafe cung cấp giải pháp toàn diện để quản lý và bảo vệ người lao động.
               </p>
-              <p className="text-lg leading-relaxed text-[var(--text-muted)]">
+              <p className="text-base leading-relaxed text-[var(--text-muted)] sm:text-lg">
                 Hệ thống không chỉ giám sát vị trí real-time mà còn tự động phát hiện các tình huống nguy hiểm, 
                 cảnh báo kịp thời và hỗ trợ công tác cứu hộ. Tất cả dữ liệu được tích hợp trên một dashboard duy nhất, 
                 giúp doanh nghiệp quản lý nhân lực hiệu quả và đảm bảo an toàn tuyệt đối cho người lao động.
               </p>
-              <div className="pt-4">
+              <div className="pt-2 sm:pt-4">
                 <Link href="/solutions" className="inline-flex items-center text-[var(--brand-blue)] font-semibold hover:underline">
                   Tìm hiểu thêm về giải pháp
                   <svg className="ml-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -223,7 +222,7 @@ export default function Home() {
             </div>
 
             {/* Right column - Definition image */}
-            <div className="relative h-[400px] overflow-hidden rounded-3xl border border-slate-200 bg-slate-100 shadow-xl lg:h-[500px]">
+            <div className="relative h-[300px] overflow-hidden rounded-3xl border border-slate-200 bg-slate-100 shadow-xl sm:h-[400px] lg:h-[500px]">
               <Image
                 src="/images/HSafe_dinhnghia.JPG"
                 alt="Thiết bị HSafe triển khai tại công trường"
@@ -239,38 +238,38 @@ export default function Home() {
       {/* ════════════════════════════════════════════════════════════
           8 KEY FEATURES SECTION
       ═════════════════════════════════════════════════════════════ */}
-      <section className="bg-white py-20 lg:py-24">
-        <div className="mx-auto max-w-7xl px-6 lg:px-10">
-          <div className="mb-20 text-center">
-            <p className="text-base font-bold uppercase tracking-widest text-[var(--brand-blue)] md:text-lg lg:text-xl mb-4">
+      <section className="bg-white py-12 sm:py-16 lg:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
+          <div className="mb-12 text-center sm:mb-16 lg:mb-20">
+            <p className="text-sm font-bold uppercase tracking-widest text-[var(--brand-blue)] sm:text-base md:text-lg lg:text-xl mb-3 sm:mb-4">
               8 Tính năng chính
             </p>
-            <h2 className="text-4xl font-bold text-[var(--foreground)] md:text-5xl lg:text-6xl leading-tight">
+            <h2 className="text-3xl font-bold text-[var(--foreground)] sm:text-4xl md:text-5xl lg:text-6xl leading-tight">
               Giải pháp toàn diện cho công trường
             </h2>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-4">
             {features.map((feature, index) => (
               <div
                 key={feature.id}
-                className="group relative rounded-2xl bg-white p-6 shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 border-2 border-transparent hover:border-[var(--brand-blue)]/20"
+                className="group relative rounded-2xl bg-white p-5 shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 border-2 border-transparent hover:border-[var(--brand-blue)]/20 sm:p-6"
               >
                 {/* Icon */}
-                <div className={`mb-4 inline-flex h-16 w-16 items-center justify-center rounded-xl bg-gradient-to-br ${feature.color} text-white shadow-lg transition-transform duration-300 group-hover:scale-110 group-hover:shadow-xl`}>
+                <div className={`mb-3 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br ${feature.color} text-white shadow-lg transition-transform duration-300 group-hover:scale-110 group-hover:shadow-xl sm:mb-4 sm:h-16 sm:w-16`}>
                   <FeatureIcon iconId={feature.id} />
                 </div>
 
                 {/* Title */}
-                <h3 className="mb-2 text-lg font-bold text-[var(--foreground)] group-hover:text-[var(--brand-blue)] transition-colors duration-300">
+                <h3 className="mb-2 text-base font-bold text-[var(--foreground)] group-hover:text-[var(--brand-blue)] transition-colors duration-300 sm:text-lg">
                   {feature.title}
                 </h3>
-                <p className="mb-3 text-xs font-semibold text-[var(--brand-blue)] uppercase tracking-wide">
+                <p className="mb-2 text-xs font-semibold text-[var(--brand-blue)] uppercase tracking-wide sm:mb-3">
                   {feature.titleEn}
                 </p>
 
                 {/* Description */}
-                <p className="text-sm leading-relaxed text-[var(--text-muted)]">
+                <p className="text-xs leading-relaxed text-[var(--text-muted)] sm:text-sm">
                   {feature.description}
                 </p>
               </div>
@@ -282,12 +281,12 @@ export default function Home() {
       {/* ════════════════════════════════════════════════════════════
           BENEFITS SECTION
       ═════════════════════════════════════════════════════════════ */}
-      <section className="hero-gradient py-20 text-white lg:py-24">
-        <div className="mx-auto max-w-4xl px-6 text-center lg:px-10">
-          <h2 className="text-4xl font-bold md:text-5xl">
+      <section className="hero-gradient py-12 text-white sm:py-16 lg:py-24">
+        <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-10">
+          <h2 className="text-3xl font-bold sm:text-4xl md:text-5xl">
             Lợi ích của HSafe
           </h2>
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/90 md:text-xl">
+          <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-white/90 sm:mt-6 sm:text-lg md:text-xl">
             Quản lý chi tiết và chính xác nhân sự trên công trường một cách kịp thời đóng vai trò quan trọng 
             trong việc đảm bảo tiến độ, an ninh, an toàn và hiệu quả kinh tế của dự án.
           </p>
@@ -297,20 +296,20 @@ export default function Home() {
       {/* ════════════════════════════════════════════════════════════
           VISION SECTION
       ═════════════════════════════════════════════════════════════ */}
-      <section className="relative bg-gradient-to-b from-slate-50 to-white py-20 lg:py-24">
-        <div className="mx-auto max-w-7xl px-6 lg:px-10">
-          <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+      <section className="relative bg-gradient-to-b from-slate-50 to-white py-12 sm:py-16 lg:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
+          <div className="grid gap-8 sm:gap-12 lg:grid-cols-2 lg:items-center">
             <div>
-              <h2 className="text-4xl font-bold text-[var(--foreground)] md:text-5xl">
+              <h2 className="text-3xl font-bold text-[var(--foreground)] sm:text-4xl md:text-5xl">
                 Tầm nhìn
               </h2>
-              <p className="mt-6 text-lg leading-relaxed text-[var(--text-muted)] md:text-xl">
+              <p className="mt-4 text-base leading-relaxed text-[var(--text-muted)] sm:mt-6 sm:text-lg md:text-xl">
                 Trở thành doanh nghiệp hàng đầu trong việc cung cấp và thiết lập tiêu chuẩn an toàn 
                 cho các dự án xây dựng và nhà máy, HSafe đảm bảo khách hàng nhận được các quy trình tự động hóa 
                 và kiểm soát công việc liên quan đến <strong>HSE (Health - Safety - Environment)</strong>.
               </p>
             </div>
-            <div className="relative h-80 overflow-hidden rounded-3xl border-2 border-[var(--brand-blue)]/20 bg-slate-100 shadow-xl lg:h-96">
+            <div className="relative h-64 overflow-hidden rounded-3xl border-2 border-[var(--brand-blue)]/20 bg-slate-100 shadow-xl sm:h-80 lg:h-96">
               <Image
                 src="/images/HSafe_tamnhin.jpg"
                 alt="Hệ thống HSafe bao quát toàn cảnh công trường"
@@ -325,21 +324,21 @@ export default function Home() {
       {/* ════════════════════════════════════════════════════════════
           CTA BANNER - LIÊN HỆ
       ═════════════════════════════════════════════════════════════ */}
-      <section className="hero-gradient py-24 text-white">
-        <div className="mx-auto max-w-4xl px-6 text-center lg:px-10">
-          <h2 className="text-4xl font-bold leading-tight md:text-5xl">
+      <section className="hero-gradient py-16 text-white sm:py-20 lg:py-24">
+        <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-10">
+          <h2 className="text-3xl font-bold leading-tight sm:text-4xl md:text-5xl">
             Sẵn sàng áp dụng giải pháp an toàn cho nhân lực của bạn?
           </h2>
-          <p className="mx-auto mt-6 max-w-2xl text-xl text-white/90">
+          <p className="mx-auto mt-4 max-w-2xl text-base text-white/90 sm:mt-6 sm:text-lg md:text-xl">
             Liên hệ ngay để nhận tư vấn miễn phí từ đội ngũ kỹ sư giàu kinh nghiệm.
           </p>
-          <div className="mt-10 flex flex-wrap justify-center gap-5">
-            <Link href="/contact" className="rounded-lg bg-white px-8 py-4 text-lg font-bold text-[var(--brand-green)] shadow-lg transition hover:bg-gray-50 hover:-translate-y-0.5">
+          <div className="mt-8 flex flex-wrap justify-center gap-4 sm:mt-10 sm:gap-5">
+            <Link href="/contact" className="rounded-lg bg-white px-6 py-3 text-base font-bold text-[var(--brand-green)] shadow-lg transition hover:bg-gray-50 hover:-translate-y-0.5 sm:px-8 sm:py-4 sm:text-lg">
               Liên hệ ngay
             </Link>
             <Link
               href="/solutions"
-              className="rounded-lg border-2 border-white/40 px-8 py-4 text-lg font-semibold text-white transition hover:bg-white/10 hover:border-white"
+              className="rounded-lg border-2 border-white/40 px-6 py-3 text-base font-semibold text-white transition hover:bg-white/10 hover:border-white sm:px-8 sm:py-4 sm:text-lg"
             >
               Xem giải pháp
             </Link>

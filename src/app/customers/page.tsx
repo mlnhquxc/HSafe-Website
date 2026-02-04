@@ -37,7 +37,7 @@ export default function CustomersPage() {
       {/* Hero */}
       <section className="hero-gradient relative pb-20 pt-32">
         <div className="mx-auto max-w-7xl px-6 text-center text-white lg:px-10">
-          <h1 className="text-4xl font-bold md:text-5xl">Khách hàng</h1>
+          <h1 className="hero-heading text-center">Khách hàng</h1>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-white/80">
             Được tin tưởng bởi hàng trăm doanh nghiệp hàng đầu tại Việt Nam
           </p>

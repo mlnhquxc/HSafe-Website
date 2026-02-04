@@ -8,22 +8,22 @@ export default function ProductsPage() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
       {/* Hero Section */}
-      <section className="hero-gradient relative overflow-hidden pb-24 pt-36">
+      <section className="hero-gradient relative overflow-hidden pb-20 pt-28 sm:pb-24 sm:pt-32 lg:pt-36">
         {/* Background decoration */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute -top-1/2 -right-1/4 h-96 w-96 rounded-full bg-white/5 blur-3xl" />
-          <div className="absolute -bottom-1/2 -left-1/4 h-96 w-96 rounded-full bg-white/5 blur-3xl" />
+          <div className="absolute -top-1/2 -right-1/4 h-64 w-64 rounded-full bg-white/5 blur-3xl sm:h-96 sm:w-96" />
+          <div className="absolute -bottom-1/2 -left-1/4 h-64 w-64 rounded-full bg-white/5 blur-3xl sm:h-96 sm:w-96" />
         </div>
         
-        <div className="relative mx-auto max-w-7xl px-6 text-center text-white lg:px-10">
-          <h1 className="text-4xl font-extrabold tracking-tight md:text-5xl lg:text-6xl">
+        <div className="relative mx-auto max-w-7xl px-4 text-center text-white sm:px-6 lg:px-10">
+          <h1 className="hero-heading text-center">
             <span className="text-highlight-gold">Sản phẩm</span>
             <span className="text-white"> công nghệ</span>
             <br />
             <span className="text-white">cho </span>
             <span className="text-safety">an toàn lao động</span>
           </h1>
-          <p className="mx-auto mt-8 max-w-2xl text-lg text-white/80 md:text-xl">
+          <p className="mx-auto mt-6 max-w-2xl text-base text-white/80 sm:mt-8 sm:text-lg md:text-xl">
             Thiết bị IoT thông minh được thiết kế riêng cho môi trường công nghiệp — 
             bền bỉ, chính xác và đáng tin cậy.
           </p>
@@ -31,7 +31,7 @@ export default function ProductsPage() {
 
         {/* Wave divider */}
         <div className="absolute bottom-0 left-0 right-0">
-          <svg viewBox="0 0 1440 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg viewBox="0 0 1440 100" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
             <path d="M0 50L60 45.7C120 41.3 240 32.7 360 30.8C480 29 600 34 720 42.3C840 50.7 960 62.3 1080 64.2C1200 66 1320 57 1380 52.8L1440 48.7V100H1380C1320 100 1200 100 1080 100C960 100 840 100 720 100C600 100 480 100 360 100C240 100 120 100 60 100H0V50Z" fill="#f8fafc"/>
           </svg>
         </div>
@@ -39,7 +39,7 @@ export default function ProductsPage() {
 
       {/* Breadcrumb below hero */}
       <section className="py-3">
-        <div className="mx-auto flex max-w-7xl items-center px-6 text-xs font-medium text-slate-500 lg:px-10">
+        <div className="mx-auto flex max-w-7xl items-center px-4 text-xs font-medium text-slate-500 sm:px-6 lg:px-10">
           <nav className="flex flex-wrap items-center gap-2">
             <Link href="/" className="transition-colors hover:text-slate-900">
               Trang chủ
